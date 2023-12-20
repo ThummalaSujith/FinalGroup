@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import MenuTitle from './MenuTitle';
+import MenuTitle from '@/components/Menutitle';
 
 const Hero = () => {
   return (
