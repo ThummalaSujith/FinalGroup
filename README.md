@@ -33,7 +33,9 @@
 |
 
 
--Figma Link -[here](https://www.figma.com/file/7WDtgAsxx5uEsr9LPV1db2/Untitled?type=design&node-id=0-1&mode=design&t=pAz5mLgMwKwYxuET-0)
+-Figma Link -[here](https://www.figma.com/file/H2SJBQ2W9R4aHBhBLboOrx/NextUI-Figma-Kit-(Community)-(Community)?type=design&node-id=0-1&mode=design&t=tcGr5SgsZ5NV0obA-0)
+
+-Vercel Link -[here](https://final-group.vercel.app/)
 
 # Compitative Analysis  
 ![Screenshot of compitativeAnalysis preview](CompitativeAnalysis.png)
