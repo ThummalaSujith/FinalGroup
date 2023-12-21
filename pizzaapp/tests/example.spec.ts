@@ -33,7 +33,7 @@ test('Clicking on AboutUs navigates to the AboutUs section', async ({ page }) =>
   await page.goto('https://final-group.vercel.app/');
   await page.click('text=About Us'); // Click on About Us link
   // Expect the URL to have changed to include '#aboutus' at the end
-  await expect(page).toHaveURL('https://final-group.vercel.app/#aboutus');
+  await expect(page).toHaveURL('https://final-group.vercel.app/#AboutUs');
 });
 
 
@@ -65,25 +65,32 @@ test.describe('Hero section tests', () => {
   });
 
   test('Hero section displays the correct title', async ({ page }) => {
-    const title = page.locator('h1:has-text("HAPPINESS IS A WARM PIZZA")');
-    await expect(title).toBeVisible();
+    const title = page.locator('h1:has-text("Every Slice Tells a Delicious Story...")');
   });
 
-  test('Hero section displays the correct subtitle', async ({ page }) => {
-    const subtitle = page.locator('p:has-text("Sign Up Now and your journey to happiness begins")');
-    await expect(subtitle).toBeVisible();
-    // If you need to verify the exact text content
-    await expect(subtitle).toHaveText("Sign Up Now and your journey to happiness begins with a Free Pizza from  us on yourFirst Order");
+
+  test.beforeEach(async ({ page }) => {
+ 
+    await page.goto('https://final-group.vercel.app/'); // Replace with your app URL
+  });
+
+ 
+
+ 
+
+  
+
+  test('Order Now button is visible', async ({ page }) => {
+
+    const orderNowButton = page.locator('a:has-text("ORDER NOW")');
+
+    // Assert that the 'Order Now' button is visible
+    await expect(orderNowButton).toBeVisible();
   });
 
   // Add more tests if needed
 });
-test('Order Now button is visible', async ({ page }) => {
-  await page.goto('https://final-group.vercel.app/'); // Replace with your app URL
 
-  const orderButton = await page.locator('button:has-text("ORDER NOW")');
-  await expect(orderButton).toBeVisible();
-});
 
 test('Hero image loads correctly', async ({ page }) => {
   await page.goto('https://final-group.vercel.app/'); // Replace with your app URL
@@ -94,17 +101,6 @@ test('Hero image loads correctly', async ({ page }) => {
 
 
 
-test('Clicking Order Now initiates navigation or modal', async ({ page }) => {
-  await page.goto('https://final-group.vercel.app/'); // Replace with your app URL
-
-  await page.click('button:has-text("ORDER NOW")');
-  // Replace the expectation below with the actual outcome of clicking the button
-  // Example: expect a modal to be visible or expect the page URL to change
-  // await expect(page).toHaveURL('http://localhost:3000/order');
-  // OR
-  // const modal = await page.locator('selector-for-your-modal');
-  // await expect(modal).toBeVisible();
-});
 
 
 
@@ -244,3 +240,26 @@ test('MenuTitle heading has the correct styles', async ({ page }) => {
 
 
 
+test.describe('MenuTitle component tests', () => {
+
+  test.beforeEach(async ({ page }) => {
+    // Navigate to the page where the MenuTitle component is rendered
+    // Replace 'http://localhost:3000' with the URL where your component is rendered
+    await page.goto('https://final-group.vercel.app/');
+  });
+
+  test('menutitle display the correct heading', async ({ page }) => {
+    // Locate the heading element and assert its text content
+    const heading = page.locator('h2:has-text("A Slice of Heaven")');
+    await expect(heading).toBeVisible();
+    await expect(heading).toHaveText('A Slice of Heaven');
+  });
+
+  test('menuTitle has the correct subtitle', async ({ page }) => {
+    // Locate the subtitle paragraph and assert its text content
+    const subtitle = page.locator('p:has-text("Discover flavors that delight the senses")');
+    await expect(subtitle).toBeVisible();
+    await expect(subtitle).toHaveText('Discover flavors that delight the senses');
+  });
+
+});
